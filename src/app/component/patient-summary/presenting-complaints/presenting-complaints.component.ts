@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DiagnosisService } from 'src/app/services/diagnosis.service';
-import { MindMaps } from 'src/app/resources/mindmaps';
 import { GuidelinesService} from 'src/app/services/guidelines.service';
 
 @Component({
@@ -41,13 +40,6 @@ export class PresentingComplaintsComponent implements OnInit {
           }
 
           for(let i=0; i<startDeilimiter.length; i++) this.complaints.push(obs.value.substring(startDeilimiter[i]+4, stopDelimiter[i]-4));
-          /*
-          this.complaints = MindMaps.mindMaps.filter((val) => {
-            console.log(`${val} : ${complaints.search(val)}`);
-            if(complaints.search(val) >= 0) return val;
-          });*/
-          //console.log(complaints);
-          console.log(this.complaints);
           }
       });
       if (this.complaint !== undefined) {
