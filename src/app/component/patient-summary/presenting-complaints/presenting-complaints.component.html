@@ -10,6 +10,10 @@
 	<small><i>c. = Associated with, s. = Not associated with, h/o = History of </i></small>
 </div>
 <div>
-	
+	<li *ngFor="let guideline of guidelines">
+		<a href="{{ guideline.link }}" target="_blank">
+			{{ guideline.mmap }}
+		</a>
+	</li>
 </div>
 </ng-container>

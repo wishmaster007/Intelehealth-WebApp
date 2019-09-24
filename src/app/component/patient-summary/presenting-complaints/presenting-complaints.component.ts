@@ -41,6 +41,16 @@ export class PresentingComplaintsComponent implements OnInit {
 
           for(let i=0; i<startDeilimiter.length; i++) this.complaints.push(obs.value.substring(startDeilimiter[i]+4, stopDelimiter[i]-4));
           }
+          
+          this.complaints.forEach((complaint) => {
+            this.guidelinesService.getGuidelines(complaint).subscribe((documents) => {
+              documents.forEach((document) => {
+                this.guidelines.push(document);
+              })
+            })
+          })
+
+          console.log(this.guidelines);
       });
       if (this.complaint !== undefined) {
         this.complaintPresent = true;
