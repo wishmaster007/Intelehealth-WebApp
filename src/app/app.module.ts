@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {
   MatDialogModule,
   MatGridListModule,
@@ -117,6 +118,7 @@ import { EditDetailsComponent } from './component/my-account/edit-details/edit-d
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    PdfViewerModule,
     UserIdleModule.forRoot({idle: 900, timeout: 30, ping: 12}),
     RouterModule.forRoot([
       { path: '', component: LoginPageComponent },
