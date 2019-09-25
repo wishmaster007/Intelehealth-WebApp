@@ -6,7 +6,7 @@ import { GuidelinesService} from 'src/app/services/guidelines.service';
 @Component({
   selector: 'app-presenting-complaints',
   templateUrl: './presenting-complaints.component.html',
-  styleUrls: ['./presenting-complaints.component.css']
+  styleUrls: ['./presenting-complaints.component.css'],
 })
 export class PresentingComplaintsComponent implements OnInit {
 
@@ -15,7 +15,7 @@ export class PresentingComplaintsComponent implements OnInit {
   conceptComplaint = '3edb0e09-9135-481e-b8f0-07a26fa9a5ce';
   guidelines: any = [];
   complaints: Array<string> = [];
-  
+
   constructor(private diagnosisService: DiagnosisService,
               private route: ActivatedRoute,
               private guidelinesService: GuidelinesService) { }
@@ -33,7 +33,6 @@ export class PresentingComplaintsComponent implements OnInit {
           const stopDelimiterASCII: number = ':'.charCodeAt(0);
           const startDeilimiter: Array<number> = [];
           const stopDelimiter: Array<number> = [];
-          let complaints: string = '';
           for(let i=0; i<obs.value.length; i++) {
             if(obs.value.charCodeAt(i) == startDelimiterASCII) startDeilimiter.push(i);
             else if(obs.value.charCodeAt(i) == stopDelimiterASCII) stopDelimiter.push(i);
@@ -49,14 +48,11 @@ export class PresentingComplaintsComponent implements OnInit {
               })
             })
           })
-
-          console.log(this.guidelines);
       });
       if (this.complaint !== undefined) {
         this.complaintPresent = true;
       }
     });
  }
-
 }
 

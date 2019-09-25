@@ -10,10 +10,15 @@
 	<small><i>c. = Associated with, s. = Not associated with, h/o = History of </i></small>
 </div>
 <div>
-	<li *ngFor="let guideline of guidelines">
-		<a href="{{ guideline.link }}" target="_blank">
-			{{ guideline.mmap }}
-		</a>
-	</li>
+	<mat-accordion multi="true">
+		<mat-expansion-panel *ngFor="let guideline of guidelines">
+			<mat-expansion-panel-header>
+					<mat-panel-description>
+						{{ guideline.mmap }}
+					</mat-panel-description>
+			</mat-expansion-panel-header>
+				<div [innerHTML]="guideline.embed | safe: 'html'"></div>
+			</mat-expansion-panel>
+	</mat-accordion>
 </div>
 </ng-container>

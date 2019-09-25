@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
 import {
   MatDialogModule,
   MatGridListModule,
@@ -29,7 +28,8 @@ import {
   MatListModule,
   MatSelectModule,
   MatAutocompleteModule,
-  MatProgressSpinnerModule} from '@angular/material/';
+  MatProgressSpinnerModule,
+  MatExpansionModule} from '@angular/material/';
 import { PatientSummaryComponent } from './component/patient-summary/patient-summary.component';
 import { FamilyHistoryComponent } from './component/patient-summary/family-history/family-history.component';
 import { PastMedicalHistoryComponent } from './component/patient-summary/past-medical-history/past-medical-history.component';
@@ -61,6 +61,7 @@ import { Page404Component } from './component/page404/page404.component';
 import { SignatureComponent } from './component/my-account/signature/signature.component';
 import { UserIdleModule } from 'angular-user-idle';
 import { EditDetailsComponent } from './component/my-account/edit-details/edit-details.component';
+import { SafePipe } from './pipes/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { EditDetailsComponent } from './component/my-account/edit-details/edit-d
     FindPatientComponent,
     Page404Component,
     SignatureComponent,
-    EditDetailsComponent
+    EditDetailsComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -114,11 +116,11 @@ import { EditDetailsComponent } from './component/my-account/edit-details/edit-d
     MatDialogModule,
     MatAutocompleteModule,
     MatProgressSpinnerModule,
+    MatExpansionModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    PdfViewerModule,
     UserIdleModule.forRoot({idle: 900, timeout: 30, ping: 12}),
     RouterModule.forRoot([
       { path: '', component: LoginPageComponent },
