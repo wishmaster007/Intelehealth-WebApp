@@ -10,14 +10,18 @@
 	<small><i>c. = Associated with, s. = Not associated with, h/o = History of </i></small>
 </div>
 <div>
+<br>
+<br>
+<h4>Standard Treatment Guidelines</h4>
+<hr>
 	<mat-accordion multi="true">
-		<mat-expansion-panel *ngFor="let guideline of guidelines">
+		<mat-expansion-panel *ngFor="let guideline of guidelines; let i=index">
 			<mat-expansion-panel-header>
 					<mat-panel-description>
-						{{ guideline.mmap }}
+						{{ complaints[i] }}
 					</mat-panel-description>
 			</mat-expansion-panel-header>
-				<div [innerHTML]="guideline.embed | safe: 'html'"></div>
+				<iframe [src]="fileServerURL+guideline | safe: 'resourceUrl'" height="560px" width="100%"></iframe>
 			</mat-expansion-panel>
 	</mat-accordion>
 </div>

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DiagnosisService } from 'src/app/services/diagnosis.service';
-import { GuidelinesService} from 'src/app/services/guidelines.service';
+import { MindMaps } from 'src/app/resources/mindmaps';
+import { EndPoints } from 'src/app/resources/endpoints'; 
 
 @Component({
   selector: 'app-presenting-complaints',
@@ -15,10 +16,10 @@ export class PresentingComplaintsComponent implements OnInit {
   conceptComplaint = '3edb0e09-9135-481e-b8f0-07a26fa9a5ce';
   guidelines: any = [];
   complaints: Array<string> = [];
+  fileServerURL: string = EndPoints.fileServerURL;
 
   constructor(private diagnosisService: DiagnosisService,
-              private route: ActivatedRoute,
-              private guidelinesService: GuidelinesService) { }
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     const patientUuid = this.route.snapshot.paramMap.get('patient_id');
@@ -37,16 +38,11 @@ export class PresentingComplaintsComponent implements OnInit {
             if(obs.value.charCodeAt(i) == startDelimiterASCII) startDeilimiter.push(i);
             else if(obs.value.charCodeAt(i) == stopDelimiterASCII) stopDelimiter.push(i);
           }
-
           for(let i=0; i<startDeilimiter.length; i++) this.complaints.push(obs.value.substring(startDeilimiter[i]+4, stopDelimiter[i]-4));
           }
           
           this.complaints.forEach((complaint) => {
-            this.guidelinesService.getGuidelines(complaint).subscribe((documents) => {
-              documents.forEach((document) => {
-                this.guidelines.push(document);
-              })
-            })
+            this.guidelines.push(MindMaps.getFileName(complaint));
           })
       });
       if (this.complaint !== undefined) {
