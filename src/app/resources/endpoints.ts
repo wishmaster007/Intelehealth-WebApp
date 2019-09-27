@@ -1,3 +1,3 @@
 export class EndPoints {
-    static fileServerURL =  'http://localhost:9000/';
+    static fileServerURL =  'http://13.235.62.206/';
 }
