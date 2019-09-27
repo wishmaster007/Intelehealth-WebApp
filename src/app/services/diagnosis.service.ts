@@ -9,8 +9,7 @@ import { environment } from '../../environments/environment';
 })
 export class DiagnosisService {
   diagnosisArray = [];
-  // private baseURL = environment.baseURL;
-  private baseURL = '13.233.50.223';
+  private baseURL = environment.baseURL;
   constructor(private http: HttpClient) { }
 
   concept(uuid): Observable<any> {
