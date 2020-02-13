@@ -2,10 +2,10 @@
 <hr>
 <div *ngIf='!vitalsPresent'>No Data</div>
 <div *ngIf='vitalsPresent'>
-  <table class="table table-responsive">
+  <table class="table table-responsive borderless">
     <tr *ngFor='let item of v'>
       <th>Temp:</th>
-      <td><span *ngIf="item.temp"> {{(item.temp * 9/5) + 32 | number : '1.2-2'}} F</span></td>
+      <td><span *ngIf="item.temp"> {{(item.temp) | number : '1.2-2'}} C&deg;</span></td>
       <th>Height:</th>
       <td>{{item.height}} cm</td>
       <th>Weight:</th>
@@ -18,6 +18,8 @@
       <td>{{item.sbp}}/{{item.dbp}}</td>
       <th>HR:</th>
       <td>{{item.pulse}}</td>
+      <th>RR:</th>
+      <td>{{item.respiratoryRate}}</td>
     </tr>
   </table>
 </div>
